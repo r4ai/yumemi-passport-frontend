@@ -7,6 +7,7 @@ import prettier from "eslint-config-prettier"
 import reactJsxRuntime from "eslint-plugin-react/configs/jsx-runtime.js"
 import reactRecommended from "eslint-plugin-react/configs/recommended.js"
 import reactRefresh from "eslint-plugin-react-refresh"
+import simpleImportSort from "eslint-plugin-simple-import-sort"
 import globals from "globals"
 import tsEslint from "typescript-eslint"
 
@@ -40,6 +41,15 @@ export default tsEslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
   },
   prettier,
