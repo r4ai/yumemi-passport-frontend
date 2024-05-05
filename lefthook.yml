@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/lefthook.json
+
+pre-commit:
+  parallel: true
+  commands:
+    run-eslint-and-prettier:
+      run: >
+        bun run eslint --no-warn-ignored --fix {staged_files} &&
+        bun run prettier --ignore-unknown --write {staged_files} &&
+        git add {staged_files}
+
+    check-lockfile:
+      glob: package.json
+      run: bun install --frozen-lockfile
