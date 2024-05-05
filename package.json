@@ -11,13 +11,14 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "preview": "vite preview",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install && panda codegen"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.39.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.5.0",
