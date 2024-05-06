@@ -32,6 +32,7 @@ export default tsEslint.config(
   },
   ...compat.extends("plugin:react-hooks/recommended"),
   ...compat.extends("plugin:jsx-a11y/recommended"),
+  ...compat.extends("plugin:@tanstack/eslint-plugin-query/recommended"),
   {
     plugins: {
       "react-refresh": reactRefresh,

@@ -71,6 +71,7 @@ export default defineConfig({
     extend: {
       groupRequired:
         ".group:is(:required, [required], [data-required], [aria-required]) &",
+      statusActive: "&:is([data-status=active])",
     },
   },
   globalCss: defineGlobalStyles({
