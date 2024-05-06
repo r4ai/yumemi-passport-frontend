@@ -1,4 +1,4 @@
-import "../src/index.css"
+import "../src/styles/global.css"
 import "./preview.css"
 
 import { withThemeByDataAttribute } from "@storybook/addon-themes"
