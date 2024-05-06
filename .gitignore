@@ -29,3 +29,7 @@ styled-system-studio
 
 # Test coverage
 coverage
+
+# Storybook
+*storybook.log
+storybook-static
