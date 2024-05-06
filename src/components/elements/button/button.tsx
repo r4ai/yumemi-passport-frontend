@@ -1,7 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType } from "react"
-import { cva, RecipeVariantProps } from "styled-system/css"
-
-import { merge } from "~/utils/classname"
+import { cva, cx, RecipeVariantProps } from "styled-system/css"
 
 export type ButtonProps<Element extends ElementType> =
   ComponentPropsWithoutRef<Element> &
@@ -20,10 +18,7 @@ export const Button = <Element extends ElementType = "button">({
 }: ButtonProps<Element>) => {
   const Element = As ?? "button"
   return (
-    <Element
-      className={merge(button({ variant, size }), className)}
-      {...props}
-    />
+    <Element className={cx(button({ variant, size }), className)} {...props} />
   )
 }
 
