@@ -71,6 +71,7 @@ export default defineConfig({
     extend: {
       groupRequired:
         ".group:is(:required, [required], [data-required], [aria-required]) &",
+      peerRequired: ".peer:is(:required, [required], [data-required]) ~ &",
       statusActive: "&:is([data-status=active])",
     },
   },
@@ -83,7 +84,8 @@ export default defineConfig({
       color: "foreground",
     },
     "*": {
-      borderColor: "zinc.600",
+      borderColor: "border",
+      outlineColor: "outline",
     },
   }),
   outdir: "styled-system",
