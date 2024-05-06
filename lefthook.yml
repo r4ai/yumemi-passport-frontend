@@ -12,3 +12,6 @@ pre-commit:
     check-lockfile:
       glob: package.json
       run: bun install --frozen-lockfile
+
+    run-type-check:
+      run: bun run tsc
