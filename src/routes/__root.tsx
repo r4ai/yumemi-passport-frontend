@@ -1,5 +1,6 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router"
 import { TanStackRouterDevtools } from "@tanstack/router-devtools"
+import { Suspense } from "react"
 import { css } from "styled-system/css"
 
 export const Route = createRootRoute({
@@ -18,7 +19,9 @@ export const Route = createRootRoute({
         </Link>
       </div>
       <hr />
-      <Outlet />
+      <Suspense fallback="Loading...">
+        <Outlet />
+      </Suspense>
       <TanStackRouterDevtools />
     </>
   ),
