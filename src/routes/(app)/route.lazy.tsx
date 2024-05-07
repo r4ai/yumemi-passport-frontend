@@ -1,19 +1,26 @@
-import { useSuspenseQuery } from "@tanstack/react-query"
 import { createLazyFileRoute } from "@tanstack/react-router"
+import { Suspense } from "react"
+import { ErrorBoundary } from "react-error-boundary"
 import { css } from "styled-system/css"
 
+import * as PrefecturesCheckboxGroup from "./-components/prefectures-checkbox-group"
+import { useSelectedPrefectures } from "./-hooks/use-selected-prefectures"
+
 export const Page = () => {
-  const { data } = useSuspenseQuery({
-    queryKey: ["helloworld"],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      return "Hello World!"
-    },
-  })
+  const { selectedPrefectures, selectPrefecture, deselectPrefecture } =
+    useSelectedPrefectures()
 
   return (
     <div className={css({ padding: "2" })}>
-      <h3>{data}</h3>
+      <Suspense fallback={<PrefecturesCheckboxGroup.Loading />}>
+        <ErrorBoundary fallbackRender={PrefecturesCheckboxGroup.Error}>
+          <PrefecturesCheckboxGroup.Container
+            selectedPrefectures={selectedPrefectures}
+            onSelectPrefecture={selectPrefecture}
+            onDeselectPrefecture={deselectPrefecture}
+          />
+        </ErrorBoundary>
+      </Suspense>
     </div>
   )
 }
