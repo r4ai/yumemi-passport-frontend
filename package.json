@@ -16,7 +16,7 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "storybook:test": "test-storybook --coverage",
-    "storybook:test:ci": "concurrently --kill-others --success=first --names='SERVER,TEST' --prefix-colors='gray,blue' 'bun storybook --quiet --no-open' 'wait-on tcp:6006 && bun storybook:test'",
+    "storybook:test:ci": "concurrently --kill-others --success=first --names='SERVER,TEST' --prefix-colors='gray,blue' 'bun storybook --quiet --no-open' 'wait-on --delay=500 tcp:6006 && bun storybook:test'",
     "prepare": "lefthook install && panda codegen"
   },
   "dependencies": {
