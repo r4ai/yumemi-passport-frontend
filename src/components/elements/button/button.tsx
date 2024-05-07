@@ -95,7 +95,8 @@ const button = cva({
       },
       icon: {
         fontSize: "sm",
-        padding: "2",
+        paddingX: "2",
+        paddingY: "2",
       },
     },
   },

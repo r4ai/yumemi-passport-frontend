@@ -7,6 +7,8 @@ import ReactDOM from "react-dom/client"
 
 import { routeTree } from "~/routeTree.gen"
 
+import { ColorSchemeProvider } from "./features/color-scheme"
+
 const queryClient = new QueryClient()
 
 const router = createRouter({
@@ -27,9 +29,11 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <ColorSchemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </ColorSchemeProvider>
     </StrictMode>,
   )
 }

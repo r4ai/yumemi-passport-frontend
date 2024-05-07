@@ -4,6 +4,9 @@ import "./preview.css"
 import { withThemeByDataAttribute } from "@storybook/addon-themes"
 import type { Preview } from "@storybook/react"
 import { themes } from "@storybook/theming"
+import React from "react"
+
+import { ColorSchemeProvider } from "../src/features/color-scheme"
 
 const preview: Preview = {
   parameters: {
@@ -26,6 +29,11 @@ const preview: Preview = {
       defaultTheme: "light",
       attributeName: "data-color-scheme",
     }),
+    (Story) => (
+      <ColorSchemeProvider>
+        <Story />
+      </ColorSchemeProvider>
+    ),
   ],
 }
 
