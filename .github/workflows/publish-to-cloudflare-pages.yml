@@ -23,6 +23,9 @@ jobs:
       - name: Build website
         run: bun run build
 
+      - name: Build storybook
+        run: bun run storybook:build && mv storybook-static dist/storybook
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
