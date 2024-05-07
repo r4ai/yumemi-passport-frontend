@@ -10,7 +10,18 @@ const config: StorybookConfig = {
     "@storybook/addon-themes",
     "@storybook/addon-a11y",
     "@storybook/addon-interactions",
-    "@storybook/addon-coverage",
+    {
+      name: "@storybook/addon-coverage",
+      options: {
+        istanbul: {
+          include: [
+            "src/**/@(components|-components)/**/*",
+            "src/routes/__root.tsx",
+            "src/routes/**/*.@(route,route.lazy).tsx",
+          ],
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-vite",
