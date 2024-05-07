@@ -3,6 +3,11 @@ name: Publish to Cloudflare Pages
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   publish:
