@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-vitest
-          path: coverage/vitest
+          path: coverage
           retention-days: 1
 
   storybook:
@@ -93,7 +93,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: coverage-vitest
-          path: coverage/vitest
+          path: coverage
       - name: Download storybook coverage
         uses: actions/download-artifact@v4
         with:
