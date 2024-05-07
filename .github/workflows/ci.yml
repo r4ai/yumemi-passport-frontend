@@ -52,6 +52,12 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Run Vitest tests
         run: bun run vitest:ci
+      - name: Upload Vitest coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-vitest
+          path: coverage
+          retention-days: 1
 
   storybook:
     runs-on: ubuntu-22.04
@@ -66,3 +72,37 @@ jobs:
         run: bunx playwright install --with-deps
       - name: Run Storybook tests
         run: bun run storybook:test:ci
+      - name: Upload storybook coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-storybook
+          path: coverage/storybook
+          retention-days: 1
+
+  codecov:
+    runs-on: ubuntu-22.04
+    needs:
+      - vitest
+      - storybook
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Make coverage directory
+        run: mkdir -p coverage
+      - name: Download vitest coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-vitest
+          path: coverage
+      - name: Download storybook coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-storybook
+          path: coverage/storybook
+      - name: Upload coverage reports to codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          fail_ci_if_error: true
+          files: ./coverage/vitest/codecov.json,./coverage/storybook/codecov.json
+          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
