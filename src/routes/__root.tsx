@@ -5,6 +5,7 @@ import { sva } from "styled-system/css"
 
 import { Loader } from "~/components/elements/loader"
 import { RootLayout } from "~/components/layout"
+import { isProduction } from "~/utils/runtime/runtime"
 
 const Loading: FC = () => {
   const styles = loading()
@@ -41,7 +42,7 @@ export const Route = createRootRoute({
           <Outlet />
         </Suspense>
       </RootLayout>
-      <TanStackRouterDevtools />
+      {!isProduction && <TanStackRouterDevtools />}
     </>
   ),
 })
