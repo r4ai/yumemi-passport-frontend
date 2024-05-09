@@ -62,6 +62,7 @@ const prefecturesCheckboxGroup = sva({
       display: "grid",
       gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
       gap: "2",
+      width: "100%",
       maxWidth: "breakpoint-md",
       margin: "auto",
     },
