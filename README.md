@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# ゆめみパスポート フロントエンドコーディング試験
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://yumemi-passport-frontend-2024.r4ai.dev/storybook/?path=/docs/ui-button--docs)
+[![codecov](https://codecov.io/gh/r4ai/yumemi-passport-frontend/graph/badge.svg?token=H2JGBR3MTY)](https://codecov.io/gh/r4ai/yumemi-passport-frontend)
+[![CI](https://github.com/r4ai/yumemi-passport-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/r4ai/yumemi-passport-frontend/actions/workflows/ci.yml)
+[![Publish to Cloudflare Pages](https://github.com/r4ai/yumemi-passport-frontend/actions/workflows/publish-to-cloudflare-pages.yml/badge.svg)](https://github.com/r4ai/yumemi-passport-frontend/actions/workflows/publish-to-cloudflare-pages.yml)
 
-Currently, two official plugins are available:
+- ウェブサイト：https://yumemi-passport-frontend-2024.r4ai.dev/
+- Storybook：https://yumemi-passport-frontend-2024.r4ai.dev/storybook/
+- テストカバレッジ：https://app.codecov.io/gh/r4ai/yumemi-passport-frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🤖 Tech Stack
 
-## Expanding the ESLint configuration
+- **Build tool**: [Vite](https://vitejs.dev/)
+- **UI Framework**: [React](https://react.dev/)
+- **Styling**: [Panda CSS](https://panda-css.com/)
+- **Routing**: [TanStack Router](https://tanstack.com/router/latest)
+- **Data fetching**: [TanStack Query](https://tanstack.com/query/latest)
+- **Charting**: [Recharts](https://recharts.org/)
+- **Icons**: [Lucide](https://lucide.dev/)
+- **Testing**:
+  - [Storybook](https://storybook.js.org/)
+  - [Vitest](https://vitest.dev/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 💻 Development
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+| コマンド                  | 説明                                      |
+| ------------------------- | ----------------------------------------- |
+| `bun install`             | 依存関係のインストール                    |
+| `bun run dev`             | 開発サーバーの起動                        |
+| `bun run build`           | ビルド                                    |
+| `bun run preview`         | ビルド結果のプレビュー                    |
+| `bun run storybook`       | Storybookの起動                           |
+| `bun run storybook:build` | Storybookのビルド                         |
+| `bun run storybook:test`  | Storybookによるコンポーネントテストの実行 |
+| `bun run vitest`          | Vitestによる単体テストの実行              |
+| `bun run format`          | Prettierによるコードフォーマットの実行    |
+| `bun run lint:fix`        | ESLintによるコードのリントを実行          |
