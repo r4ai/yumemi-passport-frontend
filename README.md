@@ -36,3 +36,50 @@
 | `bun run vitest`          | Vitestによる単体テストの実行              |
 | `bun run format`          | Prettierによるコードフォーマットの実行    |
 | `bun run lint:fix`        | ESLintによるコードのリントを実行          |
+
+### 🚀 QuickStart
+
+> [!WARNING]
+> 実行には `.tool-versions` に記載されたバージョンの Node.js と Bun が必要です。
+>
+> mise もしくは asdf 等を利用している場合は、`mise install` もしくは `asdf install` によってインストールできます。
+
+1. **環境変数の設定**
+
+   `.dev.vars.example` の内容を参考に、RESAS API Key を設定した `.dev.vars` ファイルを作成してください
+
+2. **依存関係のインストール**
+
+   ```sh
+   bun install
+   ```
+
+3. **開発サーバーの起動**
+
+   ```sh
+   bun run dev
+   ```
+
+4. **Storybook の起動**
+
+   ```sh
+   bun run storybook
+   ```
+
+5. **Storybookによるコンポーネントテストの実行**
+
+   ```sh
+   bun run storybook:test
+   ```
+
+6. **Vitest による単体テストの実行**
+
+   ```sh
+   bun run vitest
+   ```
+
+7. **ビルド**
+
+   ```sh
+   bun run build
+   ```
