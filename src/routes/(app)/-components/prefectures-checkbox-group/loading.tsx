@@ -22,6 +22,7 @@ const loading = sva({
       justifyContent: "center",
       alignItems: "center",
       gap: "6",
+      marginY: "auto",
     },
   },
 })
