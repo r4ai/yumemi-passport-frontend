@@ -43,11 +43,18 @@ const header = sva({
       justifyContent: "space-between",
       alignItems: "center",
       paddingY: "2",
-      paddingX: "6",
+      paddingX: "2",
+      gap: "3",
       backgroundColor: "background",
       borderBottomColor: "border",
       borderBottomWidth: 1,
       borderBottomStyle: "solid",
+      sm: {
+        paddingX: "2",
+      },
+      md: {
+        paddingX: "6",
+      },
     },
     container: {
       display: "flex",
@@ -57,6 +64,7 @@ const header = sva({
     title: {
       fontWeight: "bold",
       fontSize: "md",
+      whiteSpace: "wrap",
     },
   },
 })
