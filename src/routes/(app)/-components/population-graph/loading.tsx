@@ -8,7 +8,7 @@ export const Loading: FC = () => {
   return (
     <div className={styles.root}>
       <Loader />
-      <p>都道府県一覧を取得中です...</p>
+      <p>人口構成データを取得中です...</p>
     </div>
   )
 }

@@ -20,7 +20,11 @@ const app = new Hono<{
  */
 app.get("/resas/v1/:path{.+}", (c) => {
   const END_POINT = "https://opendata.resas-portal.go.jp"
-  return fetch(new URL(c.req.param("path"), `${END_POINT}/api/v1/`), {
+  const params = new URL(c.req.url).searchParams
+  const url =
+    new URL(c.req.param("path"), `${END_POINT}/api/v1/`) +
+    (params.size > 0 ? `?${params}` : "")
+  return fetch(url, {
     headers: {
       "X-API-KEY": c.env.RESAS_API_KEY,
     },
