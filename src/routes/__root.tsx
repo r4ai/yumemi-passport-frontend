@@ -42,7 +42,7 @@ export const Route = createRootRoute({
           <Outlet />
         </Suspense>
       </RootLayout>
-      {!isProduction() && <TanStackRouterDevtools />}
+      {!isProduction && <TanStackRouterDevtools />}
     </>
   ),
 })
